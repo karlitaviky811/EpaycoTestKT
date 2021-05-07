@@ -23,6 +23,11 @@ export const Invoices = ({
     return (
         <div className="table-responsive">
             <button onClick={ handleReturn } className="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
+            <h3>Lista de Facturas</h3>
+            
+            
+            
+            
             <table className="table table-bordered box-shadow--6dp borderless">
                 <thead>
                     <tr>
