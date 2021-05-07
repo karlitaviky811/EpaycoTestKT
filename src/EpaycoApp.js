@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useHistory,
   } from "react-router-dom";
 
 import { DocumentForm } from './pages/DocumentForm';
