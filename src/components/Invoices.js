@@ -27,7 +27,7 @@ export const Invoices = ({
             </div>
             <button onClick={ handleReturn } className="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
             <h4>Lista de Facturas</h4>
-            <table className="table table-bordered box-shadow--6dp borderless">
+            <table className="table table-bordered box-shadow--6dp borderless p-5">
                 <thead>
                     <tr>
                     <th>{ getName( 'amountFirst' ) }</th>
