@@ -37,7 +37,6 @@ export const Facturas = () => {
     const handleClick = ( fact ) => {
         
         setShowModal( !showModal );
-
         setFactura( Object.assign({}, fact) );
     }
 
