@@ -7,11 +7,18 @@ import {
 
 import { DocumentForm } from './pages/DocumentForm';
 import { Facturas } from './pages/Facturas';
+import { AnimatedSwitch } from 'react-router-transition';
 
+import './App.css';
 export const EpaycoApp = () => {
 
     return (
         <Router>
+            <AnimatedSwitch
+      atEnter={{ opacity: 1 }}
+      atLeave={{ opacity: 1 }}
+      atActive={{ opacity: 1 }}
+    >
             <Switch>
                 <Route
                     exact
@@ -23,6 +30,7 @@ export const EpaycoApp = () => {
                     component={ Facturas }
                 />
             </Switch>
+            </AnimatedSwitch>s
         </Router> 
     );
 }
