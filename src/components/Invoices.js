@@ -17,9 +17,12 @@ export const Invoices = ({
         return  date.getFullYear() +'-' + month + '-' + day + ' '+ hours + ':' + minutes + ':' +seconds;
     }
 
+    const handleReturn = () => {
+        window.location.href = '/';    
+    }
     return (
         <div className="table-responsive">
-            <button className="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
+            <button onClick={ handleReturn } className="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
             <table className="table table-bordered box-shadow--6dp borderless">
                 <thead>
                     <tr>

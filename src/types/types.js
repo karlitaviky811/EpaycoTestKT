@@ -1,4 +1,4 @@
 export const types = {
 
-    addFactura: '[Add] Factura',
+    changeStatus: '[changeStatus] Modal',
 }

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useForm } from '../hooks/userForm';
 import './home.css';
@@ -21,13 +21,14 @@ export const DocumentForm = ( { history } ) => {
         {}, { auth: {username: 'pruebafront@payco.co', password: 'pruebafront$2020'}})
         .then(async function(res) {
             const header = {Authorization: `Bearer ${res.data.token}`}
-            
+            toast('Consultando ...',{autoClose:1000})
+                  
+           
             // Petición para obtener las configuraciones de un proyecto
             await axios.post('https://apify.epayco.co//billcollect/proyect/config/consult',
                 {projectId: 29},
                 {headers: header})
                     .then(res => {
-                        console.log("response: ", res.data);
                         const { data } = res.data;
                         localStorage.setItem('configuration', JSON.stringify( data ));  
                     });
@@ -41,9 +42,8 @@ export const DocumentForm = ( { history } ) => {
                             },
                             {headers: {Authorization: `Bearer ${res.data.token}`}})
                                 .then(res => {
-                                    console.log("facturas", res.data.data.bills)
+                                   
                                     if(res.data.data.bills.length > 0){
-                                        console.log("response: ", res.data);
                                         const { data } = res.data;
                                         localStorage.setItem('facturas', JSON.stringify( data ));
                                     
@@ -52,7 +52,7 @@ export const DocumentForm = ( { history } ) => {
 
                                     }else{
                                        
-                                        toast.warning('Este documento'+ ' " '+ document +' "' + ' : ' + 'no tiene facturas asociadas', {autoClose:false},{position: toast.POSITION.TOP_CENTER})
+                                        toast.warning('Este documento'+ ' " '+ document +' "' + ' : ' + 'no tiene facturas asociadas',{position: toast.POSITION.TOP_CENTER})
                                        
                                         
                                     }
@@ -61,7 +61,7 @@ export const DocumentForm = ( { history } ) => {
         });
         }else{
 
-            toast.error('¡El campo documento es obligatorio!')
+            toast.error('¡El campo documento es obligatorio!',{position: toast.POSITION.TOP_CENTER})
         }
 
     }
@@ -70,7 +70,7 @@ export const DocumentForm = ( { history } ) => {
         <div className="container main">
            
 
-            <form className="custom-form box-shadow--6dp" onSubmit={ handleSubmit }>
+            <form className="custom-form box-shadow--6dp marginTable" onSubmit={ handleSubmit }>
 
             <div className="p-2 mb-5 text-center">Consulte sus facturas</div>
                 <div className="form-group">
