@@ -83,7 +83,7 @@ export const DocumentForm = ( { history } ) => {
                         name="document"
                         value={ doc }
                         onChange={ handleInputChange }
-                        placeholder="Document"
+                        placeholder="Documento"
                     />   
                 </div>
                 <div className="form-group d-flex flex-row justify-content-center">
