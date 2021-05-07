@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { EpaycoApp } from './EpaycoApp';
-
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={ store }>
     <EpaycoApp />
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 

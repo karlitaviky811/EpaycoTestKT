@@ -6,15 +6,23 @@ export const Invoices = ({
     handleClick,
 }) => {
 
-    const convertDate = ( date ) => {
-        const newDate = new Date( date * 1000 );
-        console.log( newDate );
-        return newDate.getDate() - 1 + '-' + newDate.getMonth() +  '-' + newDate.getFullYear();
+    const convertDate = ( d ) => {
+
+        const date = new Date( d * 1000 ),
+        month = ("0" + (date.getMonth() + 1)).slice(-2),
+        day = ("0" + date.getDate()).slice(-2),
+        hours = ("0" + date.getHours()).slice(-2),
+        minutes = ("0" + date.getMinutes()).slice(-2),
+        seconds = ("0" + date.getSeconds()).slice(-2);
+        return  date.getFullYear() +'-' + month + '-' + day + ' '+ hours + ':' + minutes + ':' +seconds;
     }
 
+    const handleReturn = () => {
+        window.location.href = '/';    
+    }
     return (
         <div className="table-responsive">
-            <button class="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
+            <button onClick={ handleReturn } className="btn btn-outline-info bOut"><i className="fas fa-chevron-left"></i></button>
             <table className="table table-bordered box-shadow--6dp borderless">
                 <thead>
                     <tr>

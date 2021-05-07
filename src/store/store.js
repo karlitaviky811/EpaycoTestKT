@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
+import { EpaycoReducer } from '../reducers/epaycoReducer';
 
 const reducers = combineReducers({
-    session: SessionReducer
+    epayco: EpaycoReducer
 });
 
 export const store = createStore(reducers);

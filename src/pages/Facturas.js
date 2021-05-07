@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useFetch } from '../hooks/useFetch'
 import './table.css';
 import {Modal} from '../components/Modal';
 import { Invoices } from '../components/Invoices';
 
 export const Facturas = () => {
 
-    const { loading } = useFetch(`https://www.breakingbadapi.com/api/quotes/1`)
-
-    let factura = {};
     const configs = JSON.parse( localStorage.getItem('configuration') );
     const facturas = JSON.parse( localStorage.getItem('facturas') );
-    let factTraslate = [];
     const [ showModal, setShowModal] = useState( false );
     const [ facturaNew, setFactura ] = useState({});
 
